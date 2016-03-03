@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+<head>
+    <title>Elendil</title>
+    <meta charset="utf-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>Eärendil</h1>
+        <base href="/">
+        
+        <div data-ng-include src="'app/shared/views/menu.html'"> </div>
+        
+        <hr />
+        
+        <div data-ng-view></div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"></script>
+    
+    <script src="app/app.js"></script>
+    <script src="app/services/AppService.js"></script>
+
+
+</body>
+</html>
