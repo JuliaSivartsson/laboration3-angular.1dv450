@@ -1,7 +1,4 @@
-angular.module("app").controller("RestaurantsViewModel", RestaurantsViewModel);
-
-RestaurantsViewModel.$inject = ['RestaurantsService'];
-
-function RestaurantsViewModel(RestaurantsService) {
-    var vm = this;
-}
+app.controller("restaurantsViewModel", function ($rootScope, $scope, $http, $q, $routeParams, $window, $location) {
+    
+    
+});

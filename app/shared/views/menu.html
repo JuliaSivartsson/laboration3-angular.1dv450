@@ -18,7 +18,8 @@
         <li><a data-ng-href="tags">Alla taggar</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Logga in</a></li>
+        <li><a data-ng-href="login" ng-hide="currentUser.authorized">Logga in</a></li>
+        <li><a data-ng-href="logout" ng-show="currentUser.authorized">Logga ut</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

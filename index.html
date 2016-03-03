@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -18,11 +19,20 @@
         <div data-ng-view></div>
     </div>
     
+    <!-- Angular scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"></script>
     
     <script src="app/app.js"></script>
+    <script src="app/app.settings.js"></script>
+    
+    <!-- Services -->
     <script src="app/services/AppService.js"></script>
+    
+    <!-- ViewModels  -->
+    <script src="app/restaurants/viewModels/RestaurantsViewModel.js"></script>
+    <script src="app/authentication/viewModels/LoginViewModel.js"></script>
+    <script src="app/tags/viewModels/TagsViewModel.js"></script>
 
 
 </body>
