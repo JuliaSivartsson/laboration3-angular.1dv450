@@ -1,9 +1,13 @@
-Här kommer alla taggar att listas
-
-Såhär typ:
-
-
-<ul>
-    <li><a data-ng-href="#">#vegan</a></li>
-    <li><a data-ng-href="#">#awesome</a></li>
-</ul>
+<h1>Taggar</h1>
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>Namn</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tr ng-repeat="tag in tags">
+        <td><a data-ng-href="tag/{{tag.id}}">{{tag.name}}</a></td>
+        <td><button ng-show="$root.isLoggedIn" type="button" ng-click="restaurantsCtrl.removeRestaurant(restaurant.id)">Remove restaurant</button></td>
+    </tr>
+</table>

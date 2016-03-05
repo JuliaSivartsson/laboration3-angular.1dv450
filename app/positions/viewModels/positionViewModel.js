@@ -1,27 +1,26 @@
-app.controller("restaurantViewModel", function(HEROKU, BASE_URL, API_KEY, $rootScope, $scope, $http, $q, $routeParams, $window, $location) {
+app.controller("positionViewModel", function(BASE_URL, API_KEY, HEROKU, $rootScope, $scope, $http, $q, $routeParams, $window, $location) {
     
-    var initialize = function(){
-        $scope.getRestaurant($routeParams.restaurantId);    
+    var Initialize = function(){
+        $scope.getPosition($routeParams.positionId);
     };
     
-    $scope.getRestaurant = function(id) {
+    $scope.getPosition = function(id) {
         var getConfig = {
             headers: {
               "Accept"   : "application/json",
             }
         };
         
-        $http.get(BASE_URL + "restaurants/" + id + "?access_token=" + API_KEY, getConfig).success(function(data) {
-            $scope.restaurant = data.restaurant;
-            console.log(data);
-            $scope.getTags($scope.restaurant.links.tags);
+        $http.get(BASE_URL + "positions/" + id + "?access_token=" + API_KEY, getConfig).success(function(data) {
+            $scope.position = data.position;
+            $scope.getRestaurants($scope.position.links.restaurants);
         
         }).error(function(data, status) {
             console.log('error');
         });
     };
     
-    $scope.getTags = function(link){
+    $scope.getRestaurants = function(link){
         var getConfig = {
             headers: {
               "Accept"   : "application/json",
@@ -29,14 +28,15 @@ app.controller("restaurantViewModel", function(HEROKU, BASE_URL, API_KEY, $rootS
         };
         
         $http.get(HEROKU + link + "?access_token=" + API_KEY, getConfig).success(function(data) {
-            $scope.tags = data.tags;
+            console.log(data);
+            $scope.restaurants = data.restaurants;
         
         }).error(function(data, status) {
             console.log('error');
         });
     };
       
-      initialize();
+      Initialize();
 });
 
 /*app.controller("restaurantsViewModel", function(BASE_URL, API_KEY, restaurantsService, $rootScope, $scope, $http, $q, $routeParams, $window, $location) {

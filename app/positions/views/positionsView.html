@@ -1,0 +1,17 @@
+<h1>Platser</h1>
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>Adress</th>
+            <th>Longitude</th>
+            <th>Latitude</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tr ng-repeat="position in positions">
+        <td><a data-ng-href="position/{{position.id}}">{{position.address}}</a></td>
+        <td>{{position.longitude}}</td>
+        <td>{{position.latitude}}</td>
+        <td><button ng-show="$root.isLoggedIn" type="button" ng-click="restaurantsCtrl.removeRestaurant(restaurant.id)">Remove restaurant</button></td>
+    </tr>
+</table>

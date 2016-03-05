@@ -16,10 +16,11 @@
       <ul class="nav navbar-nav">
         <li><a data-ng-href="restaurants">Alla restauranger</a></li>
         <li><a data-ng-href="tags">Alla taggar</a></li>
+        <li><a data-ng-href="positions">Alla platser</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a data-ng-href="login" ng-hide="currentUser.authorized">Logga in</a></li>
-        <li><a data-ng-href="logout" ng-show="currentUser.authorized">Logga ut</a></li>
+        <li><a data-ng-href="login" ng-show="!$root.isLoggedIn">Logga in</a></li>
+        <li><a data-ng-href="logout" ng-show="$root.isLoggedIn">Logga ut</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

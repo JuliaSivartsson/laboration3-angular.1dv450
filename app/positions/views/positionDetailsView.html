@@ -1,0 +1,9 @@
+<div class="jumbotron">
+    <h2>{{position.address}}</h2>
+    <hr/>
+    Spana in de restauranger som finns på den här platsen:
+    <div ng-repeat="restaurant in restaurants">
+        <td><a data-ng-href="restaurant/{{restaurant.id}}">{{restaurant.name}}</a></td>
+        <td><button ng-show="$root.isLoggedIn" type="button" ng-click="restaurantsCtrl.removeRestaurant(restaurant.id)">Remove restaurant</button></td>
+    </div>
+</div>

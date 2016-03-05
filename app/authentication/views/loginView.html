@@ -1,11 +1,13 @@
 <form>
   <div class="form-group">
     <label for="email">Email:</label>
-    <input type="email" class="form-control" ng-model="user.email" placeholder="Email" length="50">
+    <input type="email" class="form-control" ng-model="userEmail" placeholder="Email" length="50">
   </div>
   <div class="form-group">
     <label for="password">Lösenord</label>
-    <input type="password" class="form-control" ng-model="user.password" placeholder="Lösenord">
+    <input type="password" class="form-control" ng-model="userPassword" placeholder="Lösenord">
   </div>
-  <button type="submit" ng-click="login()" class="btn btn-primary">Logga in</button>
+  <button type="submit" ng-click="loginUser()" class="btn btn-primary">Logga in</button>
+  
+  <p>Token: {{$rootScope.token}}</p>
 </form>
