@@ -1,9 +1,16 @@
-Här kommer alla restauranger att listas
-
-Såhär typ:
-
-
-<ul>
-    <li><a data-ng-href="#">Mammas place!</a></li>
-    <li><a data-ng-href="#">Anubis bistro</a></li>
-</ul>
+<table class="table table-condensed table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Rating</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tr ng-repeat="restaurant in restaurants">
+        <td><a data-ng-href="restaurant/{{restaurant.id}}">{{restaurant.name}}</a></td>
+        <td>{{restaurant.message}}</td>
+        <td>{{restaurant.rating}}</td>
+        <td><button ng-show="$root.isLoggedIn" type="button" ng-click="restaurantsCtrl.removeRestaurant(restaurant.id)">Remove restaurant</button></td>
+    </tr>
+</table>

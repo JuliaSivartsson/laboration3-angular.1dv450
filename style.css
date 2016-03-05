@@ -1,3 +1,11 @@
 .form-control{
     width: 200px;
 }
+
+h2{
+    float:left;
+}
+
+.red {
+    background-color: red;
+}

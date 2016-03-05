@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
     <div class="container">
@@ -13,6 +13,8 @@
         <base href="/">
         
         <div data-ng-include src="'app/shared/views/menu.html'"> </div>
+        <p class="alert alert-success" data-ng-show="$root.isLoggedIn">Du är inloggad</p>
+         <p class="alert alert-danger" data-ng-show="!$root.isLoggedIn">Du är inte inloggad</p>
         
         <hr />
         
@@ -27,10 +29,13 @@
     <script src="app/app.settings.js"></script>
     
     <!-- Services -->
-    <script src="app/services/AppService.js"></script>
+    <script src="app/services/restaurantsService.js"></script>
+    <script src="app/services/resourceService.js"></script>
+    <script src="app/services/appService.js"></script>
     
     <!-- ViewModels  -->
-    <script src="app/restaurants/viewModels/RestaurantsViewModel.js"></script>
+    <script src="app/restaurants/viewModels/restaurantsViewModel.js"></script>
+        <script src="app/restaurants/viewModels/restaurantViewModel.js"></script>
     <script src="app/authentication/viewModels/LoginViewModel.js"></script>
     <script src="app/tags/viewModels/TagsViewModel.js"></script>
 
