@@ -1,10 +1,11 @@
-var app = angular.module("app", ['ngRoute'])
+var app = angular.module("app", ['ngRoute', 'ngMap'])
   .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
       $routeProvider.
         when('/', { templateUrl: 'app/home/views/indexView.html' }).
         when('/restaurants', { templateUrl: 'app/restaurants/views/restaurantsView.html', controller: 'restaurantsViewModel', controllerAs: 'restaurantsCtrl' }).
         when('/restaurant/:restaurantId', { templateUrl: 'app/restaurants/views/restaurantDetailsView.html', controller: 'restaurantViewModel', controllerAs: 'restaurantCtrl' }).
+        when('/restaurants/add', { templateUrl: 'app/restaurants/views/addRestaurantView.html', controller: 'modifyRestaurantViewModel', controllerAs: 'restaurantCtrl' }).
         
         when('/tags', { templateUrl: 'app/tags/views/tagsView.html', controller: 'tagsViewModel', controllerAs: 'tags' }).
         when('/tag/:tagId', { templateUrl: 'app/tags/views/tagDetailsView.html', controller: 'tagViewModel', controllerAs: 'tags' }).

@@ -3,11 +3,9 @@
     <thead>
         <tr>
             <th>Namn</th>
-            <th></th>
         </tr>
     </thead>
     <tr ng-repeat="tag in tags">
         <td><a data-ng-href="tag/{{tag.id}}">{{tag.name}}</a></td>
-        <td><button ng-show="$root.isLoggedIn" type="button" ng-click="restaurantsCtrl.removeRestaurant(restaurant.id)">Remove restaurant</button></td>
     </tr>
 </table>
