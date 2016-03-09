@@ -1,4 +1,4 @@
-app.controller("restaurantsViewModel", function(BASE_URL, API_KEY, HEROKU, $rootScope, $scope, $http, $q, $routeParams, $window, $location) {
+app.controller("restaurantsViewModel", function(BASE_URL, API_KEY, HEROKU, $rootScope, authenticationService, $scope, $http, $q, $routeParams, $window, $location) {
     
     var Initialize = function(){
         $scope.getAllRestaurants();

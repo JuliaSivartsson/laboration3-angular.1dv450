@@ -1,4 +1,4 @@
-app.controller("loginViewModel", function (BASE_URL, API_KEY, $rootScope, $scope, $http, $q, $routeParams, $window, $location, HEROKU ) {
+app.controller("loginViewModel", function (BASE_URL, API_KEY, $rootScope, authenticationService, $scope, $http, $q, $routeParams, $window, $location, HEROKU ) {
 
       $scope.loginUser = function() {
         var values = {
@@ -19,11 +19,21 @@ app.controller("loginViewModel", function (BASE_URL, API_KEY, $rootScope, $scope
 
         //Login did succeed!
         promise.success(function(data, status, headers, config) {
-          console.log(data);
-          console.log(status);
           
           //JWT token is returned
-          $rootScope.token = data.auth_token;
+          //$rootScope.token = data.auth_token;
+          
+          
+          console.log(data.jwt);
+          var currentUser = {
+            id: $scope.userEmail,
+            name: $scope.userPassword,
+            token: data.jwt,
+            authorized: true
+          };
+          
+          authenticationService.setCurrentUser(currentUser);
+          $location.path('/');
           $rootScope.isLoggedIn = true;
         });
         // Login did not succeed

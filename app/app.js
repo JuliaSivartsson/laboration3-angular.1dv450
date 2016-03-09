@@ -14,6 +14,7 @@ var app = angular.module("app", ['ngRoute', 'ngMap'])
         when('/position/:positionId', { templateUrl: 'app/positions/views/positionDetailsView.html', controller: 'positionViewModel', controllerAs: 'positions' }).
         
         when('/login', { templateUrl: 'app/authentication/views/loginView.html', controller: 'loginViewModel', controllerAs: 'login' }).
+        when('/logout', { template: " ", controller: 'logoutViewModel', controllerAs: 'logout' }).
         otherwise({ redirectTo: '/' });
       $locationProvider.html5Mode(true); // This removes the hash-bang and use the Session history management >= IE10
 

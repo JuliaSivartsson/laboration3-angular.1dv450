@@ -19,8 +19,8 @@
         <li><a data-ng-href="positions">Alla platser</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a data-ng-href="login" ng-show="!$root.isLoggedIn">Logga in</a></li>
-        <li><a data-ng-href="logout" ng-show="$root.isLoggedIn">Logga ut</a></li>
+        <li><a data-ng-href="login" ng-show="!authenticated">Logga in</a></li>
+        <li><a data-ng-href="logout" ng-show="authenticated">Logga ut</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
