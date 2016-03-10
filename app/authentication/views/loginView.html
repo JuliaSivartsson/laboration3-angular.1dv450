@@ -1,4 +1,4 @@
-<form>
+<form class="loginForm">
   <div class="form-group">
     <label for="email">Email:</label>
     <input type="email" class="form-control" ng-model="userEmail" placeholder="Email" length="50">
@@ -8,6 +8,4 @@
     <input type="password" class="form-control" ng-model="userPassword" placeholder="Lösenord">
   </div>
   <button type="submit" ng-click="loginUser()" class="btn btn-primary">Logga in</button>
-  
-  <p>Token: {{$rootScope.token}}</p>
 </form>

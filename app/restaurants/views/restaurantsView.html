@@ -1,7 +1,8 @@
 <h1>Restauranger</h1>
 <div>
-    <a data-ng-href="restaurants/add" class="btn btn-primary" ng-show="$root.isLoggedIn">Lägg till restaurang</a>
+    <a data-ng-href="restaurants/add" class="btn btn-primary" ng-show="authenticated">Lägg till restaurang</a>
 </div>
+<p>Tryck på <i class="fa fa-map-marker fa-2x"></i>-symbolen för att visa restaurangen på kartan.</p>
 
 <map class="map" center="{{mapBox.center}}" zoom="{{mapBox.zoom}}" draggable="true"> 
         <info-window id="myInfoWindow">
@@ -9,6 +10,7 @@
                 <h4><a data-ng-href="restaurant/{{selectedRestaurant.id}}">{{selectedRestaurant.name}}</a></h4>
                 <p></p>{{selectedRestaurant.message}}</p>
                 <p>Betyg: {{selectedRestaurant.rating}}</p>
+                <p>Address: {{selectedRestaurant.position.address}}</p>
                 
                 Restaurangen är taggad i:
                 <ul>
@@ -25,18 +27,18 @@
 <table class="table table-condensed table-striped">
     <thead>
         <tr>
+            <th></th>
             <th>Namn</th>
             <th>Beskrivning</th>
             <th>Betyg</th>
             <th></th>
-            <th></th>
         </tr>
     </thead>
     <tr ng-repeat="restaurant in restaurants">
+        <td><a href="#" ng-click="openMarker(event, restaurant);"><i class="fa fa-map-marker fa-2x"></i></a></td>
         <td><a data-ng-href="restaurant/{{restaurant.id}}">{{restaurant.name}}</a></td>
         <td>{{restaurant.message}}</td>
         <td>{{restaurant.rating}}</td>
-        <td><a href="#" ng-click="openMarker(event, restaurant);">Visa på kartan</a></td>
         <td><button class="btn btn-primary" ng-show="$root.isLoggedIn" type="button" ng-click="restaurantsCtrl.removeRestaurant(restaurant.id)">Ta bort restaurang</button></td>
     </tr>
 </table>

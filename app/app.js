@@ -1,4 +1,4 @@
-var app = angular.module("app", ['ngRoute', 'ngMap'])
+var app = angular.module("app", ['ngRoute', 'ngMap', 'flash'])
   .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
       $routeProvider.

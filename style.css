@@ -1,4 +1,4 @@
-.form-control{
+.loginForm .form-control{
     width: 200px;
 }
 
@@ -40,3 +40,5 @@ h2 {
     margin-top:3px;
     margin-bottom:3px;
 }
+
+.alert {display:inline-block;}

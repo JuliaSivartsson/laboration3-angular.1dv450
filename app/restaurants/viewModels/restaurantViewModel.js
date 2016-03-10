@@ -1,4 +1,4 @@
-app.controller("restaurantViewModel", function(HEROKU, BASE_URL, API_KEY, $rootScope, $scope, $http, $q, $routeParams, $window, $location) {
+app.controller("restaurantViewModel", function(flash, HEROKU, BASE_URL, API_KEY, $rootScope, $scope, $http, $q, $routeParams, $window, $location) {
     
     var initialize = function(){
         $scope.getRestaurant($routeParams.restaurantId);    

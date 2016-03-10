@@ -1,1 +1,29 @@
-BANANER
+<h1>Lägg till ny restaurang</h1>
+<form>
+  <div class="form-group">
+    <label for="name">Namn</label>
+    <input type="text" class="form-control" id="name" placeholder="Restaurangens namn" ng-model="restaurantName">
+  </div>
+  <div class="form-group">
+    <label for="message">Beskrivning</label>
+    <input type="text" class="form-control" id="message" placeholder="Beskrivning av restaurangen" ng-model="restaurantMessage">
+  </div>
+  <div class="form-group">
+    <label for="rating">Betyg</label>
+    <input type="text" class="form-control" id="rating" placeholder="Hur bra är den här restaurangen?" ng-model="restaurantRating">
+  </div>
+  <div class="form-group">
+    <label for="address">Adress</label>
+    <input type="text" class="form-control" id="address" placeholder="Vilken adress finns restaurangen på?" ng-model="restaurantAddress">
+  </div>
+  
+  <label for="tags"><b>Vilka taggar bör restaurangen tillhöra:</b>
+    <div class="checkbox">
+    <label>
+          <div data-ng-repeat="tag in tags">
+              <input type="checkbox" id="{{tag.id}}" ng-model="restaurantTags[tag]"> {{tag.name}}
+          </div>
+      </label>
+  </div>
+  <button type="submit" class="btn btn-primary" ng-click="addRestaurant()">Submit</button>
+</form>
