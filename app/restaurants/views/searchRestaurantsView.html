@@ -1,0 +1,31 @@
+<h1>Sök efter restaurang</h1>
+
+<p>Här går det att söka efter restaurang baserat på namn, beskrivning eller vilket betyg restaurangen har.<br/>
+Bara skriv in i sökfältet vad du vill söka efter, det behöver inte vara ett helt ord, och tryck på sök så ska befintliga resultat dyka upp under.</p>
+
+
+<div id="searchBar">
+<input id="search-box" placeholder="Sök" type="text" data-ng-model="query" />
+<button type="submit" ng-click="searchRestaurant()" class="btn btn-primary">Sök</button>
+</div>
+
+<div data-ng-show="restaurants.length > 0">
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>Namn</th>
+                <th>Beskrivning</th>
+                <th>Betyg</th>
+            </tr>
+        </thead>
+        <tr ng-repeat="restaurant in restaurants">
+            <td><a data-ng-href="restaurant/{{restaurant.id}}">{{restaurant.name}}</a></td>
+            <td>{{restaurant.message}}</td>
+            <td>{{restaurant.rating}}</td>
+        </tr>
+    </table>
+</div>
+
+<div data-ng-show="message">
+    <p class="alert alert-info§">Det verkar inte finnas några restauranger som passar in på det sökordet {{query}} :(</p>
+</div>

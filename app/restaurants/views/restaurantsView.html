@@ -1,4 +1,18 @@
+<style>
+    #myInfoWindow{
+        overflow: hidden;
+        height: 100px;
+    }
+    
+    .map{
+        padding: 20px;
+    }
+</style>
+
 <h1>Restauranger</h1>
+<div class="searchBar">
+    
+</div>
 <div>
     <a data-ng-href="restaurants/add" class="btn btn-primary" ng-show="authenticated">Lägg till restaurang</a>
 </div>
@@ -7,17 +21,14 @@
 <map class="map" center="{{mapBox.center}}" zoom="{{mapBox.zoom}}" draggable="true"> 
         <info-window id="myInfoWindow">
             <div ng-non-bindable>
-                <h4><a data-ng-href="restaurant/{{selectedRestaurant.id}}">{{selectedRestaurant.name}}</a></h4>
-                <p></p>{{selectedRestaurant.message}}</p>
-                <p>Betyg: {{selectedRestaurant.rating}}</p>
-                <p>Address: {{selectedRestaurant.position.address}}</p>
-                
-                Restaurangen är taggad i:
-                <ul>
-                <div ng-repeat="tag in selectedTags">
-                    <li><a data-ng-href="tag/{{tag.id}}">{{tag.name}}</a></li>
+                <h2>{{selectedAddress.address}}</h2>
+                <div ng-repeat="r in selectedRestaurants">
+                    <h4><a data-ng-href="restaurant/{{r.id}}">{{r.name}}</a></h4>
+                    <p></p>{{r.message}}</p>
+                    <p>Betyg: {{r.rating}}</p>
+                    <p>Address: {{r.position.address}}</p>
+                    <hr>
                 </div>
-                </ul>
             </div>
         </info-window>
         <marker ng-repeat="r in restaurants" id="{{r.id}}" position="[{{r.position.latitude}}, {{r.position.longitude}}]" on-click="showInfo(event, r)"></marker>
@@ -39,6 +50,6 @@
         <td><a data-ng-href="restaurant/{{restaurant.id}}">{{restaurant.name}}</a></td>
         <td>{{restaurant.message}}</td>
         <td>{{restaurant.rating}}</td>
-        <td><button class="btn btn-primary" ng-show="$root.isLoggedIn" type="button" ng-click="restaurantsCtrl.removeRestaurant(restaurant.id)">Ta bort restaurang</button></td>
+        <td><a data-ng-href="restaurant/{{restaurant.id}}/delete" ng-show="isOwner(restaurant)">Radera</a></td>
     </tr>
 </table>

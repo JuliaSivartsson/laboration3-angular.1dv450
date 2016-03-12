@@ -1,4 +1,4 @@
-app.controller("restaurantsViewModel", function(BASE_URL, API_KEY, HEROKU, $rootScope, authenticationService, $scope, $http, $q, $routeParams, $window, $location) {
+app.controller("restaurantsViewModel", function($rootScope, $scope, $q, $window, $location, flash, authenticationService, restaurantsService) {
     
     var Initialize = function(){
         $scope.getAllRestaurants();
@@ -23,49 +23,28 @@ app.controller("restaurantsViewModel", function(BASE_URL, API_KEY, HEROKU, $root
     };
     
     $scope.showInfo = function(event, restaurant) {
-            $scope.selectedRestaurant = restaurant;
-            $scope.getTagsForRestaurant(restaurant.links.tags);
+            $scope.selectedAddress = restaurant.position;
+            $scope.getRestaurants($scope.selectedAddress.links.restaurants);
             $scope.map.showInfoWindow('myInfoWindow', this);
     };
     
-    $scope.getTagsForRestaurant = function(link){
-        var getConfig = {
-            headers: {
-              "Accept"   : "application/json",
-            }
-        };
-        
-        $http.get(HEROKU + link + "?access_token=" + API_KEY, getConfig).success(function(data) {
-            $scope.selectedTags = data.tags;
-        
-        }).error(function(data, status) {
-            console.log('error');
+    $scope.isOwner = function(restaurant){
+        return authenticationService.isOwner(restaurant);
+    };
+    
+    $scope.getRestaurants = function(link) {
+        restaurantsService.getRestaurantsForPosition(link)
+          .success(function(data) {
+            $scope.selectedRestaurants = data.restaurants;
         });
     };
     
     $scope.getAllRestaurants = function() {
-        var getConfig = {
-            headers: {
-              "Accept"   : "application/json",
-            }
-        };
-        
-        $http.get(BASE_URL + "restaurants" + "?access_token=" + API_KEY, getConfig).success(function(data) {
+        restaurantsService.getAllRestaurants()
+          .success(function(data) {
             $scope.restaurants = data.restaurants;
-        }).error(function(data, status) {
-            console.log('error');
         });
     };
   
-    $scope.removeTeam = function(team) {
-        console.log(team);
-    };
-      
-      Initialize();
+    Initialize();
 });
-
-/*app.controller("restaurantsViewModel", function(BASE_URL, API_KEY, restaurantsService, $rootScope, $scope, $http, $q, $routeParams, $window, $location) {
-    
-    var vm = this;
-    vm.restaurants = restaurantsService.getAllRestaurants();
-});*/

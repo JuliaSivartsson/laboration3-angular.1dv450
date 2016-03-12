@@ -1,9 +1,21 @@
+<style>
+    .mapPosition{
+        height: 500px;
+    }
+</style>
+
 <div class="jumbotron">
     <h2>{{position.address}}</h2>
     <hr/>
-    Spana in de restauranger som finns på den här platsen:
+    Restaurang som har den här adressen:
     <div ng-repeat="restaurant in restaurants">
         <td><a data-ng-href="restaurant/{{restaurant.id}}">{{restaurant.name}}</a></td>
         <td><button ng-show="$root.isLoggedIn" type="button" ng-click="restaurantsCtrl.removeRestaurant(restaurant.id)">Remove restaurant</button></td>
     </div>
+    
+    <map class="mapPosition" center="[{{position.latitude}}, {{position.longitude}}]" zoom="{{mapBox.zoom}}" draggable="true">
+        <marker ng-repeat="r in restaurants" id="{{r.id}}" position="[{{r.position.latitude}}, {{r.position.longitude}}]"></marker>
+        </marker>
+    </map>
+    
 </div>

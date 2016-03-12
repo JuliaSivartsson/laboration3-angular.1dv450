@@ -1,28 +1,43 @@
-app.factory('resourceService', function($http) {
+app.factory('resourceService', function($http, BASE_URL, API_KEY) {
     var factory = {};
-    
-  factory.getResource = function() {
-    //console.log('hej');
 
-    /*var getConfig = {
-        headers: {
-          "Accept"   : "application/json",
-        }
-    };*/
-    
-    return 'hej';
-  };
-    
     //Get resource from API
-    /*factory.getResource = function(resource, params){
-          var getConfig = {
-            headers: {
-              "Accept"   : "application/json",
-            }
-          };
-          
-          $http.get(BASE_URL + resource + "?access_token=" + API_KEY, getConfig).success(function(data) { return data.restaurants;
-            
-          });
-    };*/
+    factory.getResource = function(urlToResource, resourceParams, baseUrl){
+        var params = Object.assign({ access_token: API_KEY }, resourceParams);
+        var url = baseUrl == undefined ? BASE_URL : baseUrl;
+    
+        return $http.get(url + urlToResource, {
+          params: params
+        });
+    };
+    
+    factory.addResource = function(urlToResource, values, headers){
+        var params = Object.assign({ access_token: API_KEY });
+        
+        return $http.post(BASE_URL + urlToResource, values, {
+          headers: headers,
+          params: params
+        });
+    };
+    
+    factory.updateResource = function(urlToResource, resourceParams, headers){
+        var params = Object.assign({ access_token: API_KEY }, resourceParams);
+
+    
+        return $http.put(BASE_URL + urlToResource, {
+          headers: headers,
+          params: params
+        });
+    };
+    
+    factory.deleteResource = function(urlToResource, headers){
+        var params = Object.assign({ access_token: API_KEY });
+    
+        return $http.delete(BASE_URL + urlToResource, {
+          headers: headers,
+          params: params
+        });
+    };
+    
+    return factory;
 });

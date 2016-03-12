@@ -18,12 +18,12 @@
   </div>
   
   <label for="tags"><b>Vilka taggar bör restaurangen tillhöra:</b>
+  <div data-ng-repeat="tag in tags">
     <div class="checkbox">
-    <label>
-          <div data-ng-repeat="tag in tags">
-              <input type="checkbox" id="{{tag.id}}" ng-model="restaurantTags[tag]"> {{tag.name}}
-          </div>
+      <label>
+          <input type="checkbox" value="{{tag.name}}" ng-model="tag.selected"> {{tag.name}}
       </label>
+    </div>
   </div>
   <button type="submit" class="btn btn-primary" ng-click="addRestaurant()">Submit</button>
 </form>

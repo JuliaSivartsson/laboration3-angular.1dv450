@@ -12,33 +12,27 @@
 }
 
 .map {
-    height:420px;
-    width:800px;
+    height:600px;
 }
+
+.mapPosition{
+   height:600px;
+}
+
 .infoWindowContent {
     font-size:  14px !important;
     border-top: 1px solid #ccc;
     padding-top: 10px;
 }
+
 h2 {
     margin-bottom:0;
     margin-top: 0;
 }
 
-.mapBoxView {
-    width:200px;
-    min-height:150px;
-    overflow-x:hidden;
-    overflow-y:hidden;
-}
-
-.mapBoxImage {
-    width: 90%;
-}
-
-.mapBoxContent {
-    margin-top:3px;
-    margin-bottom:3px;
-}
-
 .alert {display:inline-block;}
+
+.editSection{
+    border: 1px solid #333;
+    padding: 10px;
+}

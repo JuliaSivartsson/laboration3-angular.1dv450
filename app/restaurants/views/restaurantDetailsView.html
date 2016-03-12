@@ -1,12 +1,29 @@
+<style>
+    .editSection{
+    border: 1px solid #333;
+    padding: 0 10px 10px 10px;
+    margin-bottom: 10px;
+    width: 40%;
+}
+</style>
+
 <div class="jumbotron">
     <h2>{{restaurant.name}}</h2>
     Betyg: {{restaurant.rating}}<br/>
     {{restaurant.message}}<br/>
     Adress: <a data-ng-href="position/{{restaurant.position.id}}">{{restaurant.position.address}}</a>
     <hr/>
-    Spana in de taggar som den här restaurangen tillhör:
-    <div ng-repeat="tag in tags">
-        <td><a data-ng-href="tag/{{tag.id}}">{{tag.name}}</a></td>
-        <td><button ng-show="$root.isLoggedIn" type="button" ng-click="restaurantsCtrl.removeRestaurant(restaurant.id)">Remove restaurant</button></td>
+    
+    <div class="editSection" data-ng-show="isOwner(restaurant)">
+    <h3>Inställningar för din restaurang:</h3>
+    <a data-ng-href="restaurant/{{restaurant.id}}/edit">Redigera restaurangen</a><br/>
+    <a data-ng-href="restaurant/{{restaurant.id}}/delete">Radera restaurangen</a>
+    </div>
+    
+    <div data-ng-show="tags">
+        Spana in de taggar som den här restaurangen tillhör:
+        <div ng-repeat="tag in tags">
+            <td><a data-ng-href="tag/{{tag.id}}">{{tag.name}}</a></td>
+        </div>
     </div>
 </div>
