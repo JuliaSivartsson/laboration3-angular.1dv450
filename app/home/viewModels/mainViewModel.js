@@ -2,6 +2,7 @@ app.controller("mainViewModel", function(HEROKU, BASE_URL, API_KEY, $rootScope, 
    $scope.authenticated = false;
    
    $scope.$watch(authenticationService.authenticated, function(value){
-     $scope.authenticated = value;  
+     $scope.authenticated = value;
+     $scope.user = authenticationService.getId();
    });
 });

@@ -21,4 +21,25 @@ var app = angular.module("app", ['ngRoute', 'ngMap', 'flash'])
         otherwise({ redirectTo: '/' });
       $locationProvider.html5Mode(true); // This removes the hash-bang and use the Session history management >= IE10
 
-    }]);
+}]);
+
+
+app.controller("userController", function($scope, $http, authenticationService) {
+
+    $scope.user = {};
+    $scope.user.email = authenticationService.getId();
+});
+
+
+app.directive('userinfo', function() {
+    var directive = {};
+
+    directive.restrict = 'E'; /* restrict this directive to elements */
+
+    directive.template = "Du är inloggad som: {{user.email}}";
+
+    directive.scope = {
+        user : "=user"
+    };
+    return directive;
+});

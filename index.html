@@ -16,6 +16,12 @@
          <p class="alert alert-danger" data-ng-show="!authenticated">Ej inloggad</p>
         <base href="/">
         
+        
+
+    <div data-ng-controller="userController" data-ng-show="authenticated">
+        <userinfo user="user"></userinfo>
+    </div>
+        
         <div data-ng-include src="'app/shared/views/menu.html'"> </div>
         <flash:messages></flash:messages>
         
@@ -33,6 +39,8 @@
     
     <script src="app/app.js"></script>
     <script src="app/app.settings.js"></script>
+    
+    <script src="app/sparklineDirective.js"></script>
     
     <!-- Services -->
     <script src="app/services/restaurantsService.js"></script>
