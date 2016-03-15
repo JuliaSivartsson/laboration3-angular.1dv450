@@ -5,7 +5,7 @@ jsigc09, 1dv450
 #Få igång applikationen
 
 
-*Kopiera länken till repositoriet (HTTPS): https://github.com/JuliaSivartsson/laboration3-angular.1dv450.git
+* Kopiera länken till repositoriet (HTTPS): https://github.com/JuliaSivartsson/laboration3-angular.1dv450.git
 
 * Gå till [c9.io](https://c9.io/)
 * Logga in med befintlig användare eller skapa en ny och koppla mot Github
@@ -21,7 +21,15 @@ jsigc09, 1dv450
 
 * API-et ligger på Heroku så ingen installation behövs för att få igång det. [Länk till Laboration2 repositoriet](https://github.com/JuliaSivartsson/laboration2-ruby-1dv450)
 
+Då ingen registrering på klientapplikationen är implementerad så finns det två färdiga användare att testa med:
 
+**Användare1:**
+* Användarnamn: itzy_90@hotmail.com
+* Lösenord: hejsan
+
+**Användare2:**
+* Användarnamn: bananpaj@hotmail.com
+* Lösenord: hejsan
 
 
 
