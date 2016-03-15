@@ -5,7 +5,7 @@ var app = angular.module("app", ['ngRoute', 'ngMap', 'flash'])
         when('/', { templateUrl: 'app/home/views/indexView.html' }).
         when('/restaurants', { templateUrl: 'app/restaurants/views/restaurantsView.html', controller: 'restaurantsViewModel', controllerAs: 'restaurantsCtrl' }).
         when('/restaurant/:restaurantId', { templateUrl: 'app/restaurants/views/restaurantDetailsView.html', controller: 'restaurantViewModel', controllerAs: 'restaurantCtrl' }).
-        when('/restaurants/add', { templateUrl: 'app/restaurants/views/addRestaurantView.html', controller: 'modifyRestaurantViewModel', controllerAs: 'restaurantCtrl' }).
+        when('/restaurants/add', { templateUrl: 'app/restaurants/views/addRestaurantView.html', controller: 'addRestaurantViewModel', controllerAs: 'restaurantCtrl' }).
         when('/restaurant/:restaurantId/delete', { templateUrl: 'app/restaurants/views/deleteRestaurantView.html', controller: 'deleteRestaurantViewModel', controllerAs: 'restaurantCtrl' }).
         when('/restaurant/:restaurantId/edit', { templateUrl: 'app/restaurants/views/editRestaurantView.html', controller: 'editRestaurantViewModel', controllerAs: 'restaurantCtrl' }).
         when('/restaurants/search', { templateUrl: 'app/restaurants/views/searchRestaurantsView.html', controller: 'searchRestaurantsViewModel', controllerAs: 'restaurantCtrl' }).

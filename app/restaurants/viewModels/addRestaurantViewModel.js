@@ -35,7 +35,7 @@ app.controller("addRestaurantViewModel", function(restaurantsService, tagsServic
           flash('alert alert-success', 'Restaurangen har skapats');
             
         }).error(function(data, status) {
-          flash('alert alert-danger', 'Alla fält måste fyllas i!');
+          flash('alert alert-danger', 'Alla fält utom taggar är obligatoriska!');
         });
     };
     

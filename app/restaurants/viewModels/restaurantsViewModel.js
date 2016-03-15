@@ -18,8 +18,6 @@ app.controller("restaurantsViewModel", function($rootScope, $scope, $q, $window,
             center: [r.position.latitude, r.position.longitude],
             zoom: 18,
         };
-        
-        //$scope.showInfo(event, r);
     };
     
     $scope.showInfo = function(event, restaurant) {
