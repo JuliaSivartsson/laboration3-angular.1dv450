@@ -21,6 +21,9 @@ jsigc09, 1dv450
 
 * API-et ligger på Heroku så ingen installation behövs för att få igång det. [Länk till Laboration2 repositoriet](https://github.com/JuliaSivartsson/laboration2-ruby-1dv450)
 
+* Api-nyckel samt baslänk till api-et ställs in i filen **app.settings.js**, jag tror dock inte att det ska behöva ändras något i den filen. Det är i så fall ifall man vill testa api-et mot c9 installation instället för Heroku.
+
+
 Då ingen registrering på klientapplikationen är implementerad så finns det två färdiga användare att testa med:
 
 **Användare1:**
