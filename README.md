@@ -4,24 +4,23 @@ jsigc09, 1dv450
 ----------------------
 #Få igång applikationen
 
-```
-Kopiera länken till repositoriet (HTTPS): https://github.com/JuliaSivartsson/laboration3-angular.1dv450.git
 
-Gå till [c9.io](https://c9.io/)
-Logga in med befintlig användare eller skapa en ny och koppla mot Github
-Klicka på 'Create a new workspace'
-Ge projektet ett namn.
-Under rubriken 'Clone from Git or Mercurial URL' klistrar du in länken till det här repositoriet.
-Klicka på 'Create workspace'
+*Kopiera länken till repositoriet (HTTPS): https://github.com/JuliaSivartsson/laboration3-angular.1dv450.git
 
-När ditt workspace skapats och laddats klart, klicka på 'index.html'
-Klicka på 'Run' uppe i menyn.
-En länk till körningen kommer att dyka upp i konstollen, klicka på den.
-Nu kan du leka runt i applikationen!
+* Gå till [c9.io](https://c9.io/)
+* Logga in med befintlig användare eller skapa en ny och koppla mot Github
+* Klicka på 'Create a new workspace'
+* Ge projektet ett namn.
+* Under rubriken 'Clone from Git or Mercurial URL' klistrar du in länken till det här repositoriet.
+* Klicka på 'Create workspace'
 
-API-et ligger på Heroku så ingen installation behövs för att få igång det. [Länk till Laboration2 repositoriet](https://github.com/JuliaSivartsson/laboration2-ruby-1dv450)
+* När ditt workspace skapats och laddats klart, klicka på 'index.html'
+* Klicka på 'Run' uppe i menyn.
+* En länk till körningen kommer att dyka upp i konstollen, klicka på den.
+* Nu kan du leka runt i applikationen!
 
-```
+* API-et ligger på Heroku så ingen installation behövs för att få igång det. [Länk till Laboration2 repositoriet](https://github.com/JuliaSivartsson/laboration2-ruby-1dv450)
+
 
 
 
