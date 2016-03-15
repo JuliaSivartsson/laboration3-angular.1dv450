@@ -4,6 +4,9 @@ jsigc09, 1dv450
 ----------------------
 #Få igång applikationen
 
+Applikationen finns online på följande länk: [Eärendil](http://juliasivartsson.one)
+
+##För att få igång applikationen på cloud9:
 
 * Kopiera länken till repositoriet (HTTPS): https://github.com/JuliaSivartsson/laboration3-angular.1dv450.git
 
