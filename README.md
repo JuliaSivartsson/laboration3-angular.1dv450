@@ -50,3 +50,5 @@ det oerhört smidigt.
 den finns på. Detta var något jag inte fick att fungera med klientapplikationen så tyvärr går det bara uppdatera de saker som tillhör
 själva restaurangen (namn, beskrivning och betyg).
 
+* Jag ändrade så att det nu är obligatoriskt att namn, beskrivning, betyg samt address för en restaurang fylls i när man skapar en ny, tidigare var det bara namn som var obligatoriskt.
+
