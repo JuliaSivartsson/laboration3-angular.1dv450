@@ -1,4 +1,5 @@
-app.directive('ngSparkline', function() {
+
+/*app.directive('ngSparkline', function() {
   var url = "https://api.met.no/weatherapi/locationforecast/1.9/?lat=60.10;lon=9.58;msl=70";
   return {
     restrict: 'A',
@@ -46,4 +47,4 @@ app.directive('ngCity', function() {
   return {
     controller: function($scope) {}
   }
-});
+});*/

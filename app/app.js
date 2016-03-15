@@ -23,23 +23,8 @@ var app = angular.module("app", ['ngRoute', 'ngMap', 'flash'])
 
 }]);
 
-
-app.controller("userController", function($scope, $http, authenticationService) {
-
-    $scope.user = {};
-    $scope.user.email = authenticationService.getId();
-});
-
-
-app.directive('userinfo', function() {
-    var directive = {};
-
-    directive.restrict = 'E'; /* restrict this directive to elements */
-
-    directive.template = "Du är inloggad som: {{user.email}}";
-
-    directive.scope = {
-        user : "=user"
+app.directive('showCurrentUser', function () {
+    return {
+        template: '<p class="alert alert-success" data-ng-show="authenticated">Inloggad som: {{hejsan}}</p><p class="alert alert-danger" data-ng-show="!authenticated">Ej inloggad</p>'
     };
-    return directive;
 });

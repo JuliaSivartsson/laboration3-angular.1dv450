@@ -12,15 +12,11 @@
 <body ng-controller="mainViewModel" ng-cloak>
     <div class="container">
         <h1>Eärendil</h1>
-        <p class="alert alert-success" data-ng-show="authenticated">Inloggad</p>
-         <p class="alert alert-danger" data-ng-show="!authenticated">Ej inloggad</p>
+        
+        <!-- Custom directive to show who is online -->
+        <div show-current-user></div>
+        
         <base href="/">
-        
-        
-
-    <div data-ng-controller="userController" data-ng-show="authenticated">
-        <userinfo user="user"></userinfo>
-    </div>
         
         <div data-ng-include src="'app/shared/views/menu.html'"> </div>
         <flash:messages></flash:messages>

@@ -3,6 +3,9 @@ app.controller("mainViewModel", function(HEROKU, BASE_URL, API_KEY, $rootScope, 
    
    $scope.$watch(authenticationService.authenticated, function(value){
      $scope.authenticated = value;
-     $scope.user = authenticationService.getId();
+   });
+   
+   $scope.$watch(authenticationService.getId, function(value){
+     $scope.hejsan = value;
    });
 });
