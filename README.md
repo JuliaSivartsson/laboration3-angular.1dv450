@@ -5,6 +5,7 @@ jsigc09, 1dv450
 #Få igång applikationen
 
 Applikationen finns online på följande länk: [Eärendil](http://juliasivartsson.one)
+API-et ligger på Heroku så ingen installation behövs för att få igång det. [Länk till Laboration2 repositoriet](https://github.com/JuliaSivartsson/laboration2-ruby-1dv450)
 
 ##För att få igång applikationen på cloud9:
 
@@ -21,8 +22,6 @@ Applikationen finns online på följande länk: [Eärendil](http://juliasivartss
 * Klicka på 'Run' uppe i menyn.
 * En länk till körningen kommer att dyka upp i konstollen, klicka på den.
 * Nu kan du leka runt i applikationen!
-
-* API-et ligger på Heroku så ingen installation behövs för att få igång det. [Länk till Laboration2 repositoriet](https://github.com/JuliaSivartsson/laboration2-ruby-1dv450)
 
 * Api-nyckel samt baslänk till api-et ställs in i filen **app.settings.js**, jag tror dock inte att det ska behöva ändras något i den filen. Det är i så fall ifall man vill testa api-et mot c9 installation instället för Heroku.
 
@@ -51,4 +50,8 @@ den finns på. Detta var något jag inte fick att fungera med klientapplikatione
 själva restaurangen (namn, beskrivning och betyg).
 
 * Jag ändrade så att det nu är obligatoriskt att namn, beskrivning, betyg samt address för en restaurang fylls i när man skapar en ny, tidigare var det bara namn som var obligatoriskt.
+
+* Rating (betyg för restaurang) måste nu vara en siffra mellan 1-5, tidigare fanns ingen validering på att det var en siffra vilket gjorde att om man sparade "hejsan" som rating så blev det 5. 
+
+* Update metoden för restauranger returnerar nu korrekt felmeddelande som tas om hand i klientapplikationen. 
 
