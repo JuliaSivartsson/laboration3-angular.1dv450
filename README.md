@@ -4,6 +4,9 @@ jsigc09, 1dv450
 ----------------------
 #Få igång applikationen
 
+Applikationen finns online på följande länk: [Eärendil](http://juliasivartsson.one)
+
+##För att få igång applikationen på cloud9:
 
 * Kopiera länken till repositoriet (HTTPS): https://github.com/JuliaSivartsson/laboration3-angular.1dv450.git
 
@@ -46,4 +49,6 @@ det oerhört smidigt.
 * Jag la till i laboration2 att man skulle kunna uppdatera en restaurang och då även uppdatera vilka taggar den tillhör eller vilken plats
 den finns på. Detta var något jag inte fick att fungera med klientapplikationen så tyvärr går det bara uppdatera de saker som tillhör
 själva restaurangen (namn, beskrivning och betyg).
+
+* Jag ändrade så att det nu är obligatoriskt att namn, beskrivning, betyg samt address för en restaurang fylls i när man skapar en ny, tidigare var det bara namn som var obligatoriskt.
 
