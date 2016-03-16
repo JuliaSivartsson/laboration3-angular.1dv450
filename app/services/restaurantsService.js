@@ -13,8 +13,8 @@ app.factory('restaurantsService', function(resourceService, HEROKU) {
         return resourceService.addResource("restaurants", values, {Authorization : token});
     };
     
-    factory.updateResource = function(id, token){
-        return resourceService.updateResource("restaurants/" + id, {Authorization : token});
+    factory.updateResource = function(values, id, token){
+        return resourceService.updateResource("restaurants/" + id, values, {Authorization : token});
     };
     
     factory.deleteRestaurant = function(id, token){

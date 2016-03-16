@@ -1,29 +1,34 @@
-<h1>Lägg till ny restaurang</h1>
-<form>
-  <div class="form-group">
-    <label for="name">Namn</label>
-    <input type="text" class="form-control" id="name" placeholder="Restaurangens namn" ng-model="restaurantName">
-  </div>
-  <div class="form-group">
-    <label for="message">Beskrivning</label>
-    <input type="text" class="form-control" id="message" placeholder="Beskrivning av restaurangen" ng-model="restaurantMessage">
-  </div>
-  <div class="form-group">
-    <label for="rating">Betyg</label>
-    <input type="text" class="form-control" id="rating" placeholder="Hur bra är den här restaurangen?" ng-model="restaurantRating">
-  </div>
-  <div class="form-group">
-    <label for="address">Adress</label>
-    <input type="text" class="form-control" id="address" placeholder="Vilken adress finns restaurangen på?" ng-model="restaurantAddress">
-  </div>
-  
-  <label for="tags"><b>Vilka taggar bör restaurangen tillhöra:</b>
-  <div data-ng-repeat="tag in tags">
-    <div class="checkbox">
-      <label>
-          <input type="checkbox" value="{{tag.name}}" ng-model="tag.selected"> {{tag.name}}
-      </label>
+<div data-ng-show="authenticated">
+  <h1>Lägg till ny restaurang</h1>
+  <form>
+    <div class="form-group">
+      <label for="name">Namn</label>
+      <input type="text" class="form-control" id="name" placeholder="Restaurangens namn" ng-model="restaurantName">
     </div>
-  </div>
-  <button type="submit" class="btn btn-primary" ng-click="addRestaurant()">Submit</button>
-</form>
+    <div class="form-group">
+      <label for="message">Beskrivning</label>
+      <input type="text" class="form-control" id="message" placeholder="Beskrivning av restaurangen" ng-model="restaurantMessage">
+    </div>
+    <div class="form-group">
+      <label for="rating">Betyg</label>
+      <input type="text" class="form-control" id="rating" placeholder="Hur bra är den här restaurangen?" ng-model="restaurantRating">
+    </div>
+    <div class="form-group">
+      <label for="address">Adress</label>
+      <input type="text" class="form-control" id="address" placeholder="Vilken adress finns restaurangen på?" ng-model="restaurantAddress">
+    </div>
+    
+    <label for="tags"><b>Vilka taggar bör restaurangen tillhöra:</b>
+    <div data-ng-repeat="tag in tags">
+      <div class="checkbox">
+        <label>
+            <input type="checkbox" value="{{tag.name}}" ng-model="tag.selected"> {{tag.name}}
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" ng-click="addRestaurant()">Submit</button>
+  </form>
+</div>
+<div data-ng-show="!authenticated">
+  <p class="alert alert-danger">Du är inte behörig till den här funktionaliteten!</p>
+</div>

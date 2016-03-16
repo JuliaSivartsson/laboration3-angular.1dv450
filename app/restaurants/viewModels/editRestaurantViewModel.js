@@ -28,57 +28,32 @@ app.controller("editRestaurantViewModel", function(BASE_URL, API_KEY, HEROKU, $r
     };
     
     $scope.updateRestaurant = function(){
-        
-        /*restaurantsService.updateResource($routeParams.restaurantId, authenticationService.getToken())
-          .success(function(data) {
-            $scope.tags = data.tags;
-        });*/
-        
-        $scope.tagNameArray = [];
-        angular.forEach($scope.tags, function(tag){
-            if (!!tag.selected) $scope.tagNameArray.push(tag);
-        });
-          
-        console.log($scope.tagNameArray); 
         var values = {
             restaurant: {
                 name: $scope.restaurant.name, 
                 message: $scope.restaurant.message,
-                rating: $scope.restaurant.rating,
-                
-                /*tags: [
-                    angular.forEach($scope.tagNameArray, function(tag){
-                        name: tag
-                    }),
-                ],*/
-                
-                /*position: {
-                    address: $scope.restaurant.position.address
-                }*/
+                rating: $scope.restaurant.rating
             }
         };
         
-        console.log(values);
-        
-        var url = BASE_URL + "restaurants/" + $routeParams.restaurantId +"?access_token=" + API_KEY;
-        var config = {
-          headers: {
-              "Authorization" : authenticationService.getToken(),
-              "Accept" : "application/json"
-          }
-        };
-        
-        var promise = $http.put(url, values, config);
-        
-        //Adding restaurant did succeed!
-        promise.success(function(data, status, headers, config) {
-          $location.path('/restaurants');
-          flash('alert alert-success', 'Restaurangen har skapats');
-        });
-        
+        restaurantsService.updateResource(values, $routeParams.restaurantId, authenticationService.getToken())
+        .success(function(data) {
+              $location.path('/restaurants');
+              flash('alert alert-success', 'Restaurangen har uppdaterats!');
+        })
         // Adding restaurant did not succeed
-        promise.error(function(data, status, headers, config) {
-          flash('alert alert-danger', 'Alla fält måste fyllas i!');
+        .error(function(data, status) {
+            
+          //Error messages  
+          if (data.rating == "is not a number"){
+              flash('alert alert-danger', 'Betyget måste vara en siffra!');
+          }
+          else if(data.rating == "must be greater than 0" || data.rating == "must be less than or equal to 5"){
+              flash('alert alert-danger', 'Betyget måste vara mellan 1-5!');
+          }
+          else{
+            flash('alert alert-danger', 'Alla fält utom taggar är obligatoriska!');
+          }    
         });
     };
     

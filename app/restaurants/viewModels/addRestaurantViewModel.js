@@ -35,8 +35,18 @@ app.controller("addRestaurantViewModel", function(restaurantsService, tagsServic
           flash('alert alert-success', 'Restaurangen har skapats');
             
         }).error(function(data, status) {
-          flash('alert alert-danger', 'Alla fält utom taggar är obligatoriska!');
-        });
+          
+          //Error messages  
+          if (data.rating == "is not a number"){
+              flash('alert alert-danger', 'Betyget måste vara en siffra!');
+          }
+          else if(data.rating == "must be greater than 0" || data.rating == "must be less than or equal to 5"){
+              flash('alert alert-danger', 'Betyget måste vara mellan 1-5!');
+          }
+          else{
+            flash('alert alert-danger', 'Alla fält utom taggar är obligatoriska!');
+          }     
+      });
     };
     
     $scope.getAllTags = function(){

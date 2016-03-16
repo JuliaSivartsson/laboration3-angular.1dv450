@@ -20,11 +20,11 @@ app.factory('resourceService', function($http, BASE_URL, API_KEY) {
         });
     };
     
-    factory.updateResource = function(urlToResource, resourceParams, headers){
-        var params = Object.assign({ access_token: API_KEY }, resourceParams);
+    factory.updateResource = function(urlToResource, values, headers){
+        var params = Object.assign({ access_token: API_KEY });
 
     
-        return $http.put(BASE_URL + urlToResource, {
+        return $http.put(BASE_URL + urlToResource, values, {
           headers: headers,
           params: params
         });
