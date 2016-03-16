@@ -5,6 +5,7 @@ jsigc09, 1dv450
 #Få igång applikationen
 
 Applikationen finns online på följande länk: [Eärendil](http://juliasivartsson.one)
+
 API-et ligger på Heroku så ingen installation behövs för att få igång det. [Länk till Laboration2 repositoriet](https://github.com/JuliaSivartsson/laboration2-ruby-1dv450)
 
 ##För att få igång applikationen på cloud9:
