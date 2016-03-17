@@ -27,7 +27,7 @@ API-et finns [här på Heroku](https://powerful-inlet-94982.herokuapp.com/) så 
 * En länk till körningen kommer att dyka upp i konstollen, klicka på den.
 * Nu kan du leka runt i applikationen!
 
-##Inloggnig och API-nycklar
+##Inloggning och API-nycklar
 
 * Api-nyckel samt baslänk till api-et ställs in i filen **app.settings.js**, jag tror dock inte att det ska behöva ändras något i den filen. Det är i så fall ifall man vill testa api-et mot c9 installation instället för Heroku.
 
