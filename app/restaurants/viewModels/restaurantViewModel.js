@@ -1,11 +1,7 @@
-app.controller("restaurantViewModel", function(flash, HEROKU, $rootScope, $scope, $q, authenticationService, restaurantsService, tagsService, $routeParams, $window, $location) {
+app.controller("restaurantViewModel", function($scope, $q, authenticationService, restaurantsService, tagsService, $routeParams, $window, $location) {
     
     var initialize = function(){
         $scope.getRestaurant($routeParams.restaurantId);
-    };
-    
-    $scope.isOwner = function(restaurant){
-        return authenticationService.isOwner(restaurant);
     };
     
     $scope.getRestaurant = function(id) {
@@ -13,6 +9,12 @@ app.controller("restaurantViewModel", function(flash, HEROKU, $rootScope, $scope
           .success(function(data) {
             $scope.restaurant = data.restaurant;
             $scope.getTags($scope.restaurant.links.tags);
+            
+            //Check if logged in user created this restaurant
+            $scope.isOwner = authenticationService.isOwner($scope.restaurant);
+        })
+        .error(function(data, status) {
+            console.log('error');
         });
     };
     
@@ -20,6 +22,9 @@ app.controller("restaurantViewModel", function(flash, HEROKU, $rootScope, $scope
         tagsService.getTagsForRestaurant(link)
           .success(function(data) {
             $scope.tags = data.tags;
+        })
+        .error(function(data, status) {
+            console.log('error');
         });
     };
       

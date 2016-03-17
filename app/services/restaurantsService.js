@@ -21,7 +21,7 @@ app.factory('restaurantsService', function(resourceService, HEROKU) {
         return resourceService.deleteResource("restaurants/" + id, {Authorization : token});
     };
     
-    factory.getRestaurantsForPosition = function(link){
+    factory.getRestaurantsByLink = function(link){
       return resourceService.getResource(link, null, HEROKU);
     };
     

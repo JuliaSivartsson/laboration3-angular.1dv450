@@ -1,4 +1,4 @@
-app.controller("restaurantsViewModel", function($rootScope, $scope, $q, $window, $location, flash, authenticationService, restaurantsService) {
+app.controller("restaurantsViewModel", function($rootScope, $scope, $q, $window, $location, authenticationService, restaurantsService, tagsService) {
     
     var Initialize = function(){
         $scope.getAllRestaurants();
@@ -31,9 +31,12 @@ app.controller("restaurantsViewModel", function($rootScope, $scope, $q, $window,
     };
     
     $scope.getRestaurants = function(link) {
-        restaurantsService.getRestaurantsForPosition(link)
+        restaurantsService.getRestaurantsByLink(link)
           .success(function(data) {
             $scope.selectedRestaurants = data.restaurants;
+        })
+        .error(function(data, status) {
+            console.log('error');
         });
     };
     
@@ -41,6 +44,9 @@ app.controller("restaurantsViewModel", function($rootScope, $scope, $q, $window,
         restaurantsService.getAllRestaurants()
           .success(function(data) {
             $scope.restaurants = data.restaurants;
+        })
+        .error(function(data, status) {
+            console.log('error');
         });
     };
   

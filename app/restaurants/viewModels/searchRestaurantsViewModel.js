@@ -16,6 +16,9 @@ app.controller("searchRestaurantsViewModel", function(flash, BASE_URL, API_KEY, 
             if(data.error){
                 $scope.message = data.error;
             }
+            else{
+                $scope.message = "";
+            }
             
         }).error(function(data, status) {
             console.log('error');

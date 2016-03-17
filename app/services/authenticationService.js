@@ -1,8 +1,7 @@
-app.factory('authenticationService', function() {
+app.factory('authenticationService', function(HEROKU, $http) {
    var factory = {};
    
    factory.setCurrentUser = function(user) {
-       console.log(user.id);
        sessionStorage.setItem('userId', user.id);
        sessionStorage.setItem('token', user.token);
    };
@@ -19,6 +18,12 @@ app.factory('authenticationService', function() {
         else{
             return false;
         }
+   };
+   
+   factory.loginUser = function(values){
+        var url = HEROKU + "/knock/auth_token";
+        return $http.post(url, values, {
+        });
    };
    
    factory.getToken = function(){

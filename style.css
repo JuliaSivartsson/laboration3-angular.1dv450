@@ -13,6 +13,12 @@
 
 .map {
     height:600px;
+    padding: 20px;
+}
+
+#myInfoWindow{
+    overflow: hidden;
+    height: 100px;
 }
 
 .mapPosition{
@@ -34,5 +40,7 @@ h2 {
 
 .editSection{
     border: 1px solid #333;
-    padding: 10px;
+    padding: 0 10px 10px 10px;
+    margin-bottom: 10px;
+    width: 40%;
 }

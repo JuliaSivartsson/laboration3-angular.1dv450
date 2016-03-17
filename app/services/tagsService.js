@@ -5,8 +5,8 @@ app.factory('tagsService', function(resourceService, HEROKU) {
         return resourceService.getResource("tags");
     };
     
-    factory.getOneTag = function(){
-      
+    factory.getOneTag = function(id){
+        return resourceService.getResource("tags/" + id);  
     };
     
     factory.getTagsForRestaurant = function(link){

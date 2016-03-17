@@ -1,21 +1,39 @@
-<style>
+<!--<style>
     .mapPosition{
         height: 500px;
     }
 </style>
-
+-->
 <div class="jumbotron">
-    <h2>{{position.address}}</h2>
-    <hr/>
-    Restaurang som har den här adressen:
-    <div ng-repeat="restaurant in restaurants">
-        <td><a data-ng-href="restaurant/{{restaurant.id}}">{{restaurant.name}}</a></td>
-        <td><button ng-show="$root.isLoggedIn" type="button" ng-click="restaurantsCtrl.removeRestaurant(restaurant.id)">Remove restaurant</button></td>
+    <!-- if position does exist -->
+    <div data-ng-show="position">
+        <h2>{{position.address}}</h2>
+        <hr/>
+        Restaurang som har den här adressen:
+        <div ng-repeat="restaurant in restaurants">
+            <td><a data-ng-href="restaurant/{{restaurant.id}}">{{restaurant.name}}</a></td>
+            <td><button ng-show="$root.isLoggedIn" type="button" ng-click="restaurantsCtrl.removeRestaurant(restaurant.id)">Remove restaurant</button></td>
+        </div>
+        
+        <map class="mapPosition" center="[{{position.latitude}}, {{position.longitude}}]" zoom="{{mapBox.zoom}}" draggable="true">
+            <info-window id="myInfoWindow">
+                <div ng-non-bindable>
+                    <h2>{{selectedAddress.address}}</h2>
+                    <div ng-repeat="r in selectedRestaurants">
+                        <h4><a data-ng-href="restaurant/{{r.id}}">{{r.name}}</a></h4>
+                        <p></p>{{r.message}}</p>
+                        <p>Betyg: {{r.rating}}</p>
+                        <p>Address: {{r.position.address}}</p>
+                        <hr>
+                    </div>
+                </div>
+            </info-window>
+            <marker ng-repeat="r in restaurants" id="{{r.id}}" position="[{{r.position.latitude}}, {{r.position.longitude}}]" on-click="showInfo(event, r)"></marker>
+            </marker>
+        </map>
     </div>
-    
-    <map class="mapPosition" center="[{{position.latitude}}, {{position.longitude}}]" zoom="{{mapBox.zoom}}" draggable="true">
-        <marker ng-repeat="r in restaurants" id="{{r.id}}" position="[{{r.position.latitude}}, {{r.position.longitude}}]"></marker>
-        </marker>
-    </map>
-    
+    <!-- if tag does not exist -->
+    <div data-ng-show="!position">
+        <p>Det finns ingen plats med det det här id-t.</p>
+    </div>
 </div>

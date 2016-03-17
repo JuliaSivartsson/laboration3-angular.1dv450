@@ -1,4 +1,4 @@
-<style>
+<!--<style>
     #myInfoWindow{
         overflow: hidden;
         height: 100px;
@@ -8,15 +8,14 @@
         padding: 20px;
     }
 </style>
+-->
 
 <h1>Restauranger</h1>
-<div class="searchBar">
-    
-</div>
 <div>
     <a data-ng-href="restaurants/add" class="btn btn-primary" ng-show="authenticated">Lägg till restaurang</a>
 </div>
 <p>Tryck på <i class="fa fa-map-marker fa-2x"></i>-symbolen för att visa restaurang-markören på kartan.</p>
+<p>(Om ingen karta visas, var snäll uppdatera sidan. Ibland av någon outgrundlig anledning visas inte kartan.)</p>
 
 <map class="map" center="{{mapBox.center}}" zoom="{{mapBox.zoom}}" draggable="true"> 
         <info-window id="myInfoWindow">
@@ -31,10 +30,13 @@
                 </div>
             </div>
         </info-window>
-        <marker ng-repeat="r in restaurants" id="{{r.id}}" position="[{{r.position.latitude}}, {{r.position.longitude}}]" on-click="showInfo(event, r)"></marker>
+        <marker ng-repeat="r in restaurants | filter:searchBar" id="{{r.id}}" position="[{{r.position.latitude}}, {{r.position.longitude}}]" on-click="showInfo(event, r)"></marker>
     </marker>
 </map>
 
+<div class="searchBar">
+    <input role="search" id="search-box" placeholder="Sök" type="text" data-ng-model="searchBar.name" />
+</div>
 <table class="table table-condensed table-striped">
     <thead>
         <tr>
@@ -45,7 +47,7 @@
             <th></th>
         </tr>
     </thead>
-    <tr ng-repeat="restaurant in restaurants">
+    <tr ng-repeat="restaurant in restaurants | filter:searchBar">
         <td><a href="#" ng-click="openMarker(event, restaurant);"><i class="fa fa-map-marker fa-2x"></i></a></td>
         <td><a data-ng-href="restaurant/{{restaurant.id}}">{{restaurant.name}}</a></td>
         <td>{{restaurant.message}}</td>
