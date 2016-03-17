@@ -4,6 +4,9 @@ jsigc09, 1dv450
 ----------------------
 #Få igång applikationen
 
+
+##Live applikationer 
+
 Applikationen finns online på följande länk: [Eärendil](http://juliasivartsson.one)
 
 API-et ligger på [Heroku](https://powerful-inlet-94982.herokuapp.com/) så ingen installation behövs för att få igång det. [Länk till Laboration2 repositoriet](https://github.com/JuliaSivartsson/laboration2-ruby-1dv450)
